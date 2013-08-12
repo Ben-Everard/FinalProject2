@@ -1,19 +1,20 @@
 extends layout
 
 block content  
+  link(rel="stylesheet", href="/stylesheets/style.css")
+
   .row
     br
     br
   .row
     .large-3.columns
-      h1= title
-      p Welcome to #{title}
-      p This is an update!
     .large-6.columns.hide-for-small
-      p Use your phone to type a message!
+      p 
+        strong Use your phone to type a message!
       #messagesDiv
     .large-3.columns.show-for-small.hide-for-medium.hide-for-large
-      p Type your message to appear on the computer:
+      p 
+        strong Type your message to appear on the computer:
       input(type='text', id='nameInput', placeholder='Name')
       input(type='text', id='messageInput', placeholder='Message...')
 
@@ -35,6 +36,6 @@ block content
     messagesRef.limit(10).on('child_added', function (snapshot) {
       var message = snapshot.val();
       $('<div/>').text(message.text).prepend($('<em/>')
-        .text(message.name+': ')).preppendTo($('#messagesDiv'));
+        .text(message.name+': ')).appendTo($('#messagesDiv'));
       $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
     });
