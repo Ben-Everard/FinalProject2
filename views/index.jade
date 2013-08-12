@@ -9,9 +9,11 @@ block content
       h1= title
       p Welcome to #{title}
       p This is an update!
-    .large-6.columns
+    .large-6.columns.hide-for-small
+      p Use your phone to type a message!
       #messagesDiv
-    .large-3.columns
+    .large-3.columns.show-for-small.hide-for-medium.hide-for-large
+      p Type your message to appear on the computer:
       input(type='text', id='nameInput', placeholder='Name')
       input(type='text', id='messageInput', placeholder='Message...')
 
@@ -33,6 +35,6 @@ block content
     messagesRef.limit(10).on('child_added', function (snapshot) {
       var message = snapshot.val();
       $('<div/>').text(message.text).prepend($('<em/>')
-        .text(message.name+': ')).appendTo($('#messagesDiv'));
+        .text(message.name+': ')).preppendTo($('#messagesDiv'));
       $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
     });
