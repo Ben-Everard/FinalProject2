@@ -1,18 +1,42 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: green;
 }
 a {
   color: #00B7FF;
 }
 
-#messagesDiv {
-  background-color: white;
+#game {
+  background-color: #c2884e;
+  border-radius: 5px;
+  border: 2px solid black;
+}
+
+.row {
+  padding: 2px;
+}
+
+#controller {
+  background-color: #c2884e;
+  border-radius: 5px;
+  border: 2px solid black;
+}
+
+#players {
+  height: 75px;
+}
+
+#cards {
+  height: 200px;
+}
+
+#chatDiv {
+  background-color: #c2884e;
   overflow: auto;
-  height: 230px;
-  width: 100%;
+  height: 350px;
+  width: 25%;
   padding: 10px;
   border: 8px solid #424547;
-  margin-bottom: 5px;
   text-align: left;
 }

@@ -28,5 +28,13 @@ html.no-js(lang='en')
 
     // Foundation Footer tools 
     script.
-      window.jQuery || document.write('<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"><\\/script>')
-    script(defer, src='/javascripts/foundation.min.js')
+      document.write('<script src=' +
+      ('__proto__' in {} ? 'javascripts/vendor/zepto' : 'javascripts/vendor/jquery') +
+      '.js><\\/script>')
+    
+
+    
+    script(src='/javascripts/foundation.min.js')
+    script.
+      $(document).foundation();
+    //- block scripts
