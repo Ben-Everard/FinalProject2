@@ -7,7 +7,7 @@ $(document).ready(function(){
   $(document).on('click', '#join', function() {
     var player1 = gameRef.child('users');
     var name = $('#username').val();
-    console.log(name);
+    console.log("name: " + name);
     player1.set({ name:name, chips:10000, card1:'NULL', card2:'NULL', hand:'NULL', inPlay: true});
     // return false;
     });
