@@ -1,8 +1,15 @@
 // Get a reference to the root of the chat data.
-var pokerRef = new Firebase('https://finalprojectcd.firebaseio.com/');
+var gameRef = new Firebase('https://finalprojectcd.firebaseio.com/');
 
 $(document).ready(function(){
-  $('#joinGame').reveal();
+  $('#joinGame').foundation('reveal', 'open'); 
+
+  $(document).on('click', '#join', function() {
+    var player1 = gameRef.child('users');
+    var name = $('#username').val();
+    player1.set({ name:name, chips:10000, card1:'NULL', card2:'NULL', hand:'NULL', inPlay: true});
+    // return false;
+    });
 });
 
 // Get a reference to the root of the chat data.

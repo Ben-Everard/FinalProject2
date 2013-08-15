@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>DojoHoldem!</title>
+
+  <link rel="stylesheet" href="stylesheets/normalize.css" />
+  <link rel="stylesheet" href="stylesheets/foundation.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/index.css">
+  <script src="javascripts/vendor/custom.modernizr.js"></script>
+  <script type='text/javascript' src='https://cdn.firebase.com/v0/firebase.js'></script>
+  <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+
+</head>
+<body>
+
+ <div class="row">
+   <div id="game" class="row">
+      <div id="gameDiv" class="small-9 columns">
+         <div id="players" class="row">
+            <div class="small-4 columns">
+               <p>Joseph : 10,000</p>
+            </div>
+            <div class="small-4 columns">
+               <p>Rachel : 2 </p>
+            </div>
+            <div class="small-4 columns">
+               <p>Ben : 100</p>
+            </div>
+         </div>
+
+         <div id="cards" class="row">
+            <div id="flop" class="small-6 columns">
+               <div class="row">
+                  <div class="small-4 columns">
+                     <p>ONE CARD</p>
+                  </div>
+                  <div class="small-4 columns">
+                     <p>TWO CARD</p>
+                  </div>
+                  <div class="small-4 columns">
+                     <p>THREE CARD</p>
+                  </div>
+               </div>
+            </div>
+
+            <div id="turn" class="small-2 columns">
+               <p>TURN CARD</p>
+            </div>
+            <div id="river" class="small-2 columns">
+               <p>RIVER CARD</p>
+            </div>
+            <div id="filler" class="small-2 columns"></div>
+         </div>
+
+         <div class="row">
+            <div class="small-3 columns">
+               <p></p>
+            </div>
+            <div class="small-6 columns">
+               <p>POT! WOO!</p>
+            </div>
+            <div class="small-3 columns">
+               <p></p>
+            </div>
+         </div>
+      </div>
+
+      <div id="chatDiv" class="small-3 columns">
+         <p>CHAT DIV</p>
+      </div>
+   </div>
+
+
+
+   <div class="row">
+    <br>
+    <br>
+  </div>
+
+   <div id="controller">
+      <div class="row">
+         <div class="small-8 columns">
+            <div class="row">
+               <div class="small-6 columns">
+                  <p>Name</p>
+               </div>
+               <div class="small-6 columns">
+                  <p>Chips</p>
+               </div>
+            </div>
+            <div id="cards" class="row">
+               <div class="small-6 columns">
+                  <p>FIRST CARD</p>
+               </div>
+               <div class="small-6 columns">
+                  <p>SECOND CARD</p>
+               </div>
+            </div>
+         </div>
+         <div class="small-4 columns">
+            <div id="options" class="row">
+              <button class="small button">Call</button>
+              <br />
+              <button class="small button">Check</button>
+              <br />
+              <button class="small button">Fold</button></div>
+         </div>
+      </div>
+      <div id="chat" class="row">
+         <div class="small-12 columns"><input type="text" id="messageInput" placeholder="Message..."></div>
+      </div>
+   </div>
+
+   <!-- Join Game Modal -->
+   <div id="joinGame" class="reveal-modal">
+      <h2>Join</h2>
+        <p>Manually Join</p>
+        <form>
+          <input type="text" id="userName" placeholder="Your Name">
+          <!-- <input type="submit" name="nameSubmit" id="nameSubmit"> -->
+        </form>
+        <a class="close-reveal-modal" id="join">×</a>
+   </div>
+</div>
+
+  <script>
+  document.write('<script src=' +
+  ('__proto__' in {} ? 'javascripts/vendor/zepto' : 'javascripts/vendor/jquery') +
+  '.js><\/script>')
+  </script>
+  <script src="javascripts/foundation.min.js"></script>
+  <script type="text/javascript" src="javascripts/game.js"></script>
+  <script>
+    $(document).foundation();
+  </script>
+</body>
+</html>
