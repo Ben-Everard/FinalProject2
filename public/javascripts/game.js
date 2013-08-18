@@ -1,16 +1,42 @@
 // Get a reference to the root of the chat data.
-var gameRef = new Firebase('https://finalprojectcd.firebaseio.com/');
+var gameRef = new Firebase('https://finalprojectcd.firebaseio.com/game');
+var player1Ref = new Firebase('https://finalprojectcd.firebaseio.com/game/players/player1')
+var player2Ref = new Firebase('https://finalprojectcd.firebaseio.com/game/players/player2')
+
+player1Ref.set({ name:'', chips:10000, card1:'', card2:'', hand:'', inPlay: true});
+player2Ref.set({ name:'', chips:10000, card1:'', card2:'', hand:'', inPlay: true});
+
+
+
+player1Ref.on('value', function (snapshot){
+  var chips = snapshot.val().chips;
+  var name = snapshot.val().name;
+  $('#player1name').html(name);
+  $('#player1chips').html(chips);
+})
+
+// console.log(player1Ref);
 
 $(document).ready(function(){
+  
+  //fire join game modal at start
   $('#joinGame').foundation('reveal', 'open'); 
+  
+  // add a player to the DB
+  // $('#join').click(function() {
+  //   var name = $('#username').val();
+  //   var playerName = $('#username').val();
+  //   playerName = playerRef.child(name).set({ name:name, chips:10000, card1:'', card2:'', hand:'', inPlay: true});
+  //   // console.log(playerName); 
+  // });
 
-  $(document).on('click', '#join', function() {
-    var player1 = gameRef.child('users');
-    var name = $('#username').val();
-    console.log("name: " + name);
-    player1.set({ name:name, chips:10000, card1:'NULL', card2:'NULL', hand:'NULL', inPlay: true});
-    // return false;
-    });
+   
+  // playerRef.on('value', function (snapshot) {
+  //   var name = players.name();
+  //   console.log(name);
+  //   // document.getElementById('#player1').innerHTML = name;  
+  // })
+  
 });
 
 // Get a reference to the root of the chat data.

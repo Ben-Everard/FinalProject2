@@ -12,7 +12,7 @@ body {
   padding: 2px;
 }
 
-#controller {
+.controller {
   background-color: #c2884e;
   border-radius: 5px;
   border: 2px solid black;
