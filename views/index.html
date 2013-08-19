@@ -17,22 +17,33 @@
 </head>
 <body>
 
- <div class="row">
+ <div class="row show-for-medium-up hide-for-small">
    <div id="game" class="row">
       <div id="gameDiv" class="small-9 columns">
          <div id="players" class="row">
             <div class="small-3 columns">
-               <p id='player1name'></p>
-               <p id='player1chips'></p>
+               <span id='player1name'>Player 1</span>
+               <br>
+               <span>Chips :</span>
+               <span id='player1chips'></span>
             </div>
             <div class="small-3 columns">
-               <p id='player2'></p>
+               <span id='player2name'>Player 2</span>
+               <br>
+               <span>Chips :</span>
+               <span id='player2chips'></span>
             </div>
             <div class="small-3 columns">
-               <p id="player3"></p>
+               <span id='player3name'>Player 3</span>
+               <br>
+               <span>Chips :</span>
+               <span id='player3chips'></span>
             </div>
             <div class="small-3 columns">
-              <p id="player4"></p>
+              <span id='player4name'>Player 4</span>
+              <br>
+              <span>Chips :</span>
+              <span id='player4chips'></span>
             </div>
          </div>
 
@@ -65,7 +76,8 @@
                <p></p>
             </div>
             <div class="small-6 columns">
-               <p>POT! WOO!</p>
+               <span>Pot:</span>
+               <p id="pot"></p>
             </div>
             <div class="small-3 columns">
                <p></p>
@@ -74,7 +86,7 @@
       </div>
 
       <div id="chatDiv" class="small-3 columns">
-         <p>CHAT DIV</p>
+         
       </div>
    </div>
 
@@ -86,45 +98,48 @@
   </div>
 
   <!-- Player One -->
-  <div class="controller" id="playerOne">
-      <div class="row">
-         <div class="small-8 columns">
-            <div class="row">
-               <div class="small-6 columns">
-                  <p id='player1name'>Name: </p>
-                  <p id='player1chips'>Chips: </p>
-               </div>
-            </div>
-            <div id="cards" class="row">
-               <div class="small-6 columns">
-                  <p>FIRST CARD</p>
-               </div>
-               <div class="small-6 columns">
-                  <p>SECOND CARD</p>
-               </div>
-            </div>
-         </div>
-         <div class="small-4 columns">
-            <div id="options" class="row">
-              <button class="small button">Call</button>
-              <br />
-              <button class="small button">Check</button>
-              <br />
-              <button class="small button">Fold</button></div>
-         </div>
-      </div>
-      <div id="chat" class="row">
-         <div class="small-12 columns"><input type="text" id="messageInput" placeholder="Message..."></div>
-      </div>
+  <div class="controller" id="playerOne" class="show-for-small hide-for-medium-up">
+    <div class="row">
+       <div class="small-8 columns">
+          <div class="row">
+             <div class="small-6 columns">
+                <p id='player1name'>Name: </p>
+                <p id='player1chips'>Chips: </p>
+             </div>
+          </div>
+          <div id="cards" class="row">
+             <div class="small-6 columns">
+                <p>FIRST CARD</p>
+             </div>
+             <div class="small-6 columns">
+                <p>SECOND CARD</p>
+             </div>
+          </div>
+       </div>
+       <div class="small-4 columns">
+          <div id="options" class="row">
+            <button class="small button">Call</button>
+            <br />
+            <button class="small button">Check</button>
+            <br />
+            <button class="small button">Fold</button></div>
+       </div>
+    </div>
+    <div id="chat" class="row">
+      <div class="small-12 columns">
+        <input type="hidden" id="chatName1" value="Player 1">
+        <input type="text" id="messageInput1" placeholder="Message..."></div>
+    </div>
   </div>
 
   <!-- Player Two -->
-  <div class="controller" id="playerTwo">
+  <div class="controller" id="playerTwo" class="show-for-small hide-for-medium-up">
       <div class="row">
          <div class="small-8 columns">
             <div class="row">
                <div class="small-6 columns">
-                  <p>Chips</p>
+                  <p id='player2name'>Name: </p>
+                  <p id='player2chips'>Chips: </p>
                </div>
             </div>
             <div id="cards" class="row">
@@ -146,12 +161,14 @@
          </div>
       </div>
       <div id="chat" class="row">
-         <div class="small-12 columns"><input type="text" id="messageInput" placeholder="Message..."></div>
+        <div class="small-12 columns">
+        <input type="hidden" id="chatName2" value="Player 2">
+        <input type="text" id="messageInput2" placeholder="Message..."></div>
       </div>
   </div>
    
   <!-- Join Game Modal -->
-     <div id="joinGame" class="reveal-modal">
+     <div id="joinGame" class="reveal-modal hide-for-medium-up show-for-small">
         <h2>Join</h2>
           <p>Select Your Player</p>
           <button id="playerOneSelect" class="join" val="p1">Player One</button>
@@ -175,12 +192,13 @@
 
       $(".join").click(function(){
         $('#joinGame').foundation('reveal', 'close');
-        if ($('#playerOneSelect').click()) {
-          $("#playerOne").show();
-        } else if ($("#playerTwoSelect").click()) {
-          $("#playerTwo").show();
-        };
       });
+      $("#playerOneSelect").click(function(){
+        $("#playerOne").show();
+      })
+      $("#playerTwoSelect").click(function(){
+        $("#playerTwo").show();
+      })
     });    
   </script>
 </body>
