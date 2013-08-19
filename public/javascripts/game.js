@@ -29,10 +29,10 @@ potRef.on('value', function (snapshot){
   $('#pot').html(pot);
 })
 
-$(document).ready(function(){
-  //fire join game modal at start
-  $('#joinGame').foundation('reveal', 'open'); 
-});
+// $(document).ready(function(){
+//   //fire join game modal at start
+//   $('#joinGame').foundation('reveal', 'open'); 
+// });
 
 // Chat process
 // When the user presses enter on the message input, write the message to firebase.
