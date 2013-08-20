@@ -12,13 +12,12 @@
   <link rel="stylesheet" type="text/css" href="stylesheets/index.css">
   <script src="javascripts/vendor/custom.modernizr.js"></script>
   <script type='text/javascript' src='https://cdn.firebase.com/v0/firebase.js'></script>
-  <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+  <!-- <link rel="stylesheet" type="text/css" href="stylesheets/style.css"> -->
 
 </head>
 <body>
-
- <div>
-   <div id="game" class="row show-for-medium-up hide-for-small">
+  <div id='bg'>
+    <div id="game" class="row show-for-medium-up hide-for-small">
       <div id="gameDiv" class="small-9 columns">
          <div id="players" class="row">
             <div class="small-3 columns">
@@ -88,93 +87,7 @@
       <div id="chatDiv" class="small-3 columns">
          
       </div>
-   </div>
-
-
-
-   <div class="row">
-    <br>
-    <br>
-  </div>
-
-  <!-- Player One -->
-  <div class="controller" id="playerOne" class="show-for-small hide-for-medium-up">
-    <div class="row">
-       <div class="small-8 columns">
-          <div class="row">
-             <div class="small-6 columns">
-                <p id='player1name'>Name: </p>
-                <p id='player1chips'>Chips: </p>
-             </div>
-          </div>
-          <div id="cards" class="row">
-             <div class="small-6 columns">
-                <p>FIRST CARD</p>
-             </div>
-             <div class="small-6 columns">
-                <p>SECOND CARD</p>
-             </div>
-          </div>
-       </div>
-       <div class="small-4 columns">
-          <div id="options" class="row">
-            <button class="small button">Call</button>
-            <br />
-            <button class="small button">Check</button>
-            <br />
-            <button class="small button">Fold</button></div>
-       </div>
     </div>
-    <div id="chat" class="row">
-      <div class="small-12 columns">
-        <input type="hidden" id="chatName1" value="Player 1">
-        <input type="text" id="messageInput1" placeholder="Message..."></div>
-    </div>
-  </div>
-
-  <!-- Player Two -->
-  <div class="controller" id="playerTwo" class="show-for-small hide-for-medium-up">
-      <div class="row">
-         <div class="small-8 columns">
-            <div class="row">
-               <div class="small-6 columns">
-                  <p id='player2name'>Name: </p>
-                  <p id='player2chips'>Chips: </p>
-               </div>
-            </div>
-            <div id="cards" class="row">
-               <div class="small-6 columns">
-                  <p>FIRST CARD</p>
-               </div>
-               <div class="small-6 columns">
-                  <p>SECOND CARD</p>
-               </div>
-            </div>
-         </div>
-         <div class="small-4 columns">
-            <div id="options" class="row">
-              <button class="small button">Call</button>
-              <br />
-              <button class="small button">Check</button>
-              <br />
-              <button class="small button">Fold</button></div>
-         </div>
-      </div>
-      <div id="chat" class="row">
-        <div class="small-12 columns">
-        <input type="hidden" id="chatName2" value="Player 2">
-        <input type="text" id="messageInput2" placeholder="Message..."></div>
-      </div>
-  </div>
-   
-  <!-- Join Game Modal -->
-   <div id="joinGame" class="reveal-modal">
-      <h2>Join</h2>
-        <p>Select Your Player</p>
-        <button id="playerOneSelect" class="join" val="p1">Player One</button>
-        <button id="playerTwoSelect" class="join" val="p2">Player Two</button>
-        <a class="close-reveal-modal" id="join">×</a>
-   </div>
   </div>
 
   <script>
@@ -185,21 +98,7 @@
   <script src="javascripts/foundation.min.js"></script>
   <script type="text/javascript" src="javascripts/game.js"></script>
   <script>
-    $(document).foundation();
-    
-    $(document).ready(function(){
-      // $(".controller").hide();
-
-      // $(".join").click(function(){
-      //   $('#joinGame').foundation('reveal', 'close');
-      // });
-      // $("#playerOneSelect").click(function(){
-      //   $("#playerOne").show();
-      // })
-      // $("#playerTwoSelect").click(function(){
-      //   $("#playerTwo").show();
-      // })
-    });    
+    $(document).foundation();    
   </script>
 </body>
 </html>

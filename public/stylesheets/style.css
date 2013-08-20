@@ -1,12 +1,13 @@
 body {
-  background-color: green;
+  background-image: url('images/dojoBackground.png');
+  background-color: black;
 }
-
+/*
 #game {
   background-color: #c2884e;
   border-radius: 5px;
   border: 2px solid black;
-}
+}*/
 
 .row {
   padding: 2px;

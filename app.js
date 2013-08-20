@@ -1,6 +1,6 @@
 var express = require('express')
-  , routes = require('./routes')
-  , user = require('./routes/user')
+  , routesIndex = require('./routes')
+  , routesPlay = require('./routes/play')
   , http = require('http')
   , path = require('path')
   , firebase = require('firebase');
@@ -22,8 +22,9 @@ app.configure(function() {
 
 
 // Routing
-app.get('/', routes.index);
-app.get('/users', user.list);
+app.get('/', routesIndex.index);
+// console.log(typeof routes.play);
+app.get('/play', routesPlay.play);
 
 // Firebase server side actions
 

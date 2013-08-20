@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>DojoHoldem!</title>
+
+  <link rel="stylesheet" href="stylesheets/normalize.css" />
+  <link rel="stylesheet" href="stylesheets/foundation.css" />
+  <script src="javascripts/vendor/custom.modernizr.js"></script>
+  <script type='text/javascript' src='https://cdn.firebase.com/v0/firebase.js'></script>
+  <link rel="stylesheet" type="text/css" href="stylesheets/control.css">
+
+</head>
+<body>
+  <div class="bg_controller">
+    <!-- Player One -->
+    <div class="controller" id="playerOne" class="show-for-small hide-for-medium-up">
+      
+      <nav class="top-bar">
+        <ul class="title-area">
+          <!-- Title Area -->
+          <li class="name">
+            <h1><a href="#">Options</a></h1>
+          </li>
+          <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+        </ul>
+        <section class="top-bar-section">
+          <!-- Left Nav Section -->
+          <ul class="left">
+            <li class="divider"></li>
+            <li><a href="#">Change Name</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Raise</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Call</a></li> 
+            <li class="divider"></li>
+            <li><a href="#">Check</a></li>
+            <li class="divider"></li>
+          </ul>
+        </section>
+      </nav>
+
+      <div class="row">
+        <div class="small-12 columns">
+          <div class="row">
+            <div class="small-6 columns">
+                <span id='player1name'>Name: </span>  
+            </div>
+            <div class="small-6 columns">
+              <span>Chips: </span>
+              <p id='player1chips'></p>
+            </div>  
+          </div>
+        </div>
+      </div>
+      <div id="cards" class="row">
+         <div class="small-6 columns">
+            <p>FIRST CARD</p>
+         </div>
+         <div class="small-6 columns">
+            <p>SECOND CARD</p>
+         </div>
+      </div>
+      <!-- Chat -->
+      <div id="chat" class="row">
+        <div class="small-12 columns">
+          <input type="hidden" id="chatName1" value="Player 1">
+          <input type="text" id="messageInput1" placeholder="Message...">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg_controller">
+    <!-- Player Two -->
+    <div class="controller" id="playerTwo" class="show-for-small hide-for-medium-up">
+      
+      <nav class="top-bar">
+        <ul class="title-area">
+          <!-- Title Area -->
+          <li class="name">
+            <h1><a href="#">Options</a></h1>
+          </li>
+          <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+        </ul>
+        <section class="top-bar-section">
+          <!-- Left Nav Section -->
+          <ul class="left">
+            <li class="divider"></li>
+            <li><a href="#">Change Name</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Raise</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Call</a></li> 
+            <li class="divider"></li>
+            <li><a href="#">Check</a></li>
+            <li class="divider"></li>
+          </ul>
+        </section>
+      </nav>
+
+      <div class="row">
+        <div class="small-12 columns">
+          <div class="row">
+            <div class="small-6 columns">
+                <span id='player2name'>Name: </span>  
+            </div>
+            <div class="small-6 columns">
+              <span>Chips: </span>
+              <p id='player2chips'></p>
+            </div>  
+          </div>
+        </div>
+      </div>
+      <div id="cards" class="row">
+         <div class="small-6 columns">
+            <p>FIRST CARD</p>
+         </div>
+         <div class="small-6 columns">
+            <p>SECOND CARD</p>
+         </div>
+      </div>
+      <!-- Chat -->
+      <div id="chat" class="row">
+        <div class="small-12 columns">
+          <input type="hidden" id="chatName2" value="Player 2">
+          <input type="text" id="messageInput2" placeholder="Message...">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Join Game Modal -->
+  <div id="joinGame" class="reveal-modal">
+    <h2>Join</h2>
+      <p>Select Your Player</p>
+      <button id="playerOneSelect" class="join" val="p1">Player One</button>
+      <button id="playerTwoSelect" class="join" val="p2">Player Two</button>
+      <a class="close-reveal-modal" id="join">×</a>
+   </div>
+
+  <script>
+  document.write('<script src=' +
+  ('__proto__' in {} ? 'javascripts/vendor/zepto' : 'javascripts/vendor/jquery') +
+  '.js><\/script>')
+  </script>
+  <script src="javascripts/foundation.min.js"></script>
+  <script type="text/javascript" src="javascripts/game.js"></script>
+  <script>
+    $(document).foundation();
+    
+    $(document).ready(function(){
+      $(".join").click(function(){
+        $('#joinGame').foundation('reveal', 'close');
+      });
+
+      $("#playerOneSelect").click(function(){
+        $("#playerOne").show();
+      });
+
+      $("#playerTwoSelect").click(function(){
+        $("#playerTwo").show();
+      });
+    });    
+  </script>
+</body>
+</html>
