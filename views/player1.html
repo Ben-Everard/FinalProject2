@@ -74,15 +74,6 @@
     </div>
   </div>
 
-  <!-- Join Game Modal -->
-  <!-- <div id="joinGame" class="reveal-modal">
-    <h2>Join</h2>
-      <p>Select Your Player</p>
-      <button id="playerOneSelect" class="join" val="p1">Player One</button>
-      <button id="playerTwoSelect" class="join" val="p2">Player Two</button>
-      <a class="close-reveal-modal" id="join">×</a>
-   </div> -->
-
   <script>
   document.write('<script src=' +
   ('__proto__' in {} ? 'javascripts/vendor/zepto' : 'javascripts/vendor/jquery') +
@@ -93,30 +84,6 @@
   <script>
     $(document).foundation();
     
-    $(document).ready(function(){
-      //fire join game modal at start
-      $('#joinGame').foundation('reveal', 'open'); 
-
-      $("#playerTwo").hide();
-
-      $(".join").click(function(){
-        $('#joinGame').foundation('reveal', 'close');
-        if ($('.join').val('p1')) {
-          $("#playerOne").show();
-        } else {
-          $("#playerTwo").show();
-      });
-
-      // $("#playerOneSelect").click(function(){
-      //   // $("controlerDefault").hide();
-      //   $("#playerOne").show();
-      // });
-
-      // $("#playerTwoSelect").click(function(){
-      //   // $("controlerDefault").hide();
-      //   $("#playerTwo").show();
-      // });
-    });    
   </script>
 </body>
 </html>
