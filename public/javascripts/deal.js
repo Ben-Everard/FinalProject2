@@ -1,54 +1,72 @@
 //Ranks the cards and suits
 function Card(rank, suit) {
+  // console.log("Making a card!");
 
   this.rank = rank;
   this.suit = suit;
-
+  // console.log(rank);
+  // console.log(suit);
   this.toString = cardToString;
   this.createNode = cardCreateNode;
 }
 
+
+
 function cardToString() {
+  // console.log("Card to String ");
   var rank, suit;
 
   switch (this.rank) {
     case 'A':
+      // console.log("Ace");
       rank = 'Ace';
       break;
     case '2':
+      // console.log("Two");
       rank = 'Two';
       break;
     case '3':
+      // console.log("Three");
       rank = 'Three';
       break;
     case '4':
+      // console.log("Four");
       rank = 'Four';
       break;
     case '5':
+      // console.log("Five");
       rank = 'Five';
       break;
     case '6':
+      // console.log("Six");
       rank = 'Six';
       break;
     case '7':
+      // console.log("Seven");
       rank = 'Seven';
       break;
     case '8':
+      // console.log("Eight");
       rank = 'Eight';
       break;
     case '9':
+      // console.log("Nine");
       rank = 'Nine';
       break;
     case '10':
+      // console.log("Ten");
       rank = 'Ten'
       break;
     case 'J':
+      // console.log("Jack");
       rank = 'Jack'
       break;
     case 'Q':
+      // console.log("Queen");
       rank = 'Queen';
       break;
     case 'K':
+      // console.log("King");
       rank = 'King';
       break;
     default :
@@ -81,11 +99,12 @@ function cardToString() {
 }
 //Creates an Empty array for with a bunch of methods
 function Stack() {
+  console.log("Stack Creation");
 
   // Create an empty array of cards.
 
   this.cards = new Array();
-
+  // console.log(this.cards);
   this.makeDeck  = stackMakeDeck;
   this.shuffle   = stackShuffle;
   this.deal      = stackDeal;
@@ -96,6 +115,7 @@ function Stack() {
 }
 //Make Deck
 function stackMakeDeck(n) {
+  console.log("Making a Deck");
   var ranks = new Array('A','2','3','4','5','6','7','8','9','10','J','Q','K');
   var suits = new Array('C','D','H','S');
 
@@ -109,16 +129,37 @@ function stackMakeDeck(n) {
   this.cards = new Array(n * m);
 
   // Fill the array with 'n' packs of cards.
-
+  var cards;
   for (i = 0; i < n; i++)
     for (j = 0; j < suits.length; j++)
-      for(k = 0; k < ranks.length; k++)
+      for(k = 0; k < ranks.length; k++) {
         this.cards[i * m + j * ranks.length + k] =
           new Card(ranks[k], suits[j]);
+        cards = this.cards[i * m + j * ranks.length + k] =
+          new Card(ranks[k], suits[j]); 
+        // console.log(cards.rank);
+
+      };
+  this.shuffle(6);
+  deckRef.remove();
+  for (var l = 0; l < this.cards.length; l++) {
+    deckRef.push({ rank:(this.cards[l].rank), suit: (this.cards[l].suit) }); 
+  };
+
+  // for (var m = 0; m < 2; m++){
+  //   var newDeck = new Array();
+  //   deckRef.on('value', function (snapshot) {
+  //     console.log(snapshot.rank);
+  //     // newDeck.push(snapshot);
+  //     });
+  //   console.log(newDeck);
+  // // }
+  
 }
 
 //Shuffle
 function stackShuffle(n) {
+  console.log("Stack Shuffle");
   var i, j, k;
   var temp;
 
@@ -135,14 +176,18 @@ function stackShuffle(n) {
 
 //Dealing the cards
 function stackDeal() {
-  if (this.cards.length > 0)
-    return this.cards.shift();
-  else
+  console.log("Stack Deal");
+  if (this.cards.length > 0) {
+    var shifted = this.cards.shift();
+    
+    return shifted;
+  } else
     return null;
 }
 
 //Drawing Cards
 function stackDraw (n) {
+  console.log("Stack Draw");
   var card;
 
   if (n >= 0 && n < this.cards.length) {
@@ -156,26 +201,30 @@ function stackDraw (n) {
 
 //Card Count
 function stackCardCount() {
+  // console.log("Stack Card Count");
   return this.cards.length;
 }
 
 //Add Cards to a stack
 function stackAddCard(card) {
+  console.log("Stack Add Card");
   this.cards.push(card);
 }
 
 //Combine Decks
 function stackCombine(stack) {
+  // console.log("Stack Combine Decks");
   this.cards = this.cards.concat(stack.cards);
   stack.cards = new Array();
 }
 
-var cardImg0 = new Image(); cardImg0.src= "graphics/cardback.gif";
-var cardImg1 = new Image(); cardImg1.src= "graphics/jack.gif";
-var cardImg2 = new Image(); cardImg2.src= "graphics/queen.gif";
-var cardImg3 = new Image(); cardImg3.src= "graphics/king.gif";
+var cardImg0 = new Image(); cardImg0.src= "images/cardback.gif";
+var cardImg1 = new Image(); cardImg1.src= "images/jack.gif";
+var cardImg2 = new Image(); cardImg2.src= "images/queen.gif";
+var cardImg3 = new Image(); cardImg3.src= "images/king.gif";
 
 function cardCreateNode() {
+  // console.log("Card Create Node");
   var cardNode, frontNode, indexNode, spotNode, tempNode, textNode;
   var indexStr, spotChar;
 
@@ -295,11 +344,11 @@ function cardCreateNode() {
   tempNode = document.createElement('IMG');
   tempNode.className = "face"
   if (this.rank === "J")
-    tempNode.src = "graphics/jack.gif";
+    tempNode.src = "images/jack.gif";
   if (this.rank === "Q")
-    tempNode.src = "graphics/queen.gif";
+    tempNode.src = "images/queen.gif";
   if (this.rank === "K")
-    tempNode.src = "graphics/king.gif";
+    tempNode.src = "images/king.gif";
 
   //For face cards, add suit characters to the upper-left and lower-right corners.
   if (this.rank === 'J' || this.rank === 'Q' || this.rank === 'K') {
@@ -319,8 +368,4 @@ function cardCreateNode() {
   return cardNode;
 }
 
-//Betting
-function betting() {
-
-}
 

@@ -45,3 +45,21 @@ h2 {
   border-radius: 3px;
   text-align: left;
 }
+
+.cardArea {
+  font-size: 20pt;
+  float: left;
+  margin-right: 1em;
+  position: relative;
+  width:  4.50em;
+  height: 5.00em;
+  text-shadow: none;
+}
+#dealercards {
+  width: 50%;
+}
+#wrapper {
+  
+  margin: 0 auto;
+  width: 960px;
+}

@@ -4,10 +4,10 @@ var player1Ref = new Firebase('https://finalprojectcd.firebaseio.com/game/player
 var player2Ref = new Firebase('https://finalprojectcd.firebaseio.com/game/players/player2');
 var potRef = new Firebase('https://finalprojectcd.firebaseio.com/game/pot');
 var chatRef = new Firebase('https://finalprojectcd.firebaseio.com/game/chat');
+var deckRef = new Firebase('https://finalprojectcd.firebaseio.com/game/deck');
 
 potRef.set({total:0});
-player1Ref.set({ name:'', chips:7000, card1:'', card2:'', hand:'', inPlay: true});
-player2Ref.set({ name:'', chips:3000, card1:'', card2:'', hand:'', inPlay: true});
+
 
 // Keeps track of everyone's chip count
 player1Ref.on('value', function (snapshot){
