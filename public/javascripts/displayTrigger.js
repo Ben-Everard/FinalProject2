@@ -37,26 +37,29 @@ function communityCards() {
       ccardsArrayDealt.push(eachSnapshot.val());
     });
 
-    var j;
+    // var j;
 
     if (ccardsArrayDealt.length === 3)
-        transferCards(3, dealerCards());
+        transferCards(3);
     else if (ccardsArrayDealt.length === 4)
-        transferCards(4, dealerCards());
+        transferCards(4);
     else if (ccardsArrayDealt.length=== 5)
       return false;
     else
-      for (j=0; j < 3; j++)
-        transferCards(j, dealerCards);
+      for (var j=0; j < 3; j++){
+        transferCards(j);
+      }
+        
   });
 }
 
 // Transfer cards from the Community "held" to Community "dealt"
-function transferCards(num, callback) {
+function transferCards(num) {
+  console.log("New Transfer");
   var ccardsDealt = new Array();
   var ccardsHeld = new Array();
   // Pull all values first from the 'held' ref and add to 'held' array
-  communityCardRef.child('held').once('value', function (snapshot, error){
+  communityCardRef.child('held').once('value', function (snapshot){
     snapshot.forEach(function (eachSnapshot){
       ccardsHeld.push(eachSnapshot.val());
     });
@@ -75,9 +78,10 @@ function transferCards(num, callback) {
       ccardsDealt.push(card);
       // adds the card to the player's hand
       communityCardRef.child('dealt').child(num).set({ rank: card['rank'], suit: card['suit'] });
-      console.log(ccardsHeld);
-      console.log(ccardsDealt);
-      console.log("Done transferring");
+     
+      console.log("Done transferring: ");
+      console.log(card);
+
     });
   });
 }
