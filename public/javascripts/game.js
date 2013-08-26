@@ -5,6 +5,7 @@ var player2Ref = new Firebase('https://finalprojectcd.firebaseio.com/game/player
 var potRef = new Firebase('https://finalprojectcd.firebaseio.com/game/pot');
 var chatRef = new Firebase('https://finalprojectcd.firebaseio.com/game/chat');
 var deckRef = new Firebase('https://finalprojectcd.firebaseio.com/game/deck');
+var communityCardRef = new Firebase('https://finalprojectcd.firebaseio.com/game/deck/ccards');
 
 potRef.set({total:0});
 
@@ -12,20 +13,20 @@ potRef.set({total:0});
 // Keeps track of everyone's chip count
 player1Ref.on('value', function (snapshot){
   var chips = snapshot.val().chips;
-  console.log(chips);
+  // console.log(chips);
   $('#player1chips').html(chips);
 })
 
 player2Ref.on('value', function (snapshot){
   var chips = snapshot.val().chips;
-  console.log(chips);
+  // console.log(chips);
   $('#player2chips').html(chips);
 })
 
 // Keeps track of the amount in the pot
 potRef.on('value', function (snapshot){
   var pot = snapshot.val().total;
-  console.log(pot);
+  // console.log(pot);
   $('#pot').html(pot);
 })
 

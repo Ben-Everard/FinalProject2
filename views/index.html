@@ -100,8 +100,10 @@
   </script>
   <script src="javascripts/foundation.min.js"></script>
   <script type="text/javascript" src="javascripts/game.js"></script>
-  <script type="text/javascript" src="javascripts/deck.js"></script>
+  <script type="text/javascript" src="javascripts/makeDeck.js"></script>
   <script type="text/javascript" src="javascripts/deal.js"></script>
+  <script type="text/javascript" src="javascripts/displayTrigger.js"></script>
+  <script type="text/javascript" src="javascripts/displayCards.js"></script>
   <script>
     $(document).foundation();
       window.onload = init;
@@ -121,7 +123,7 @@
     player1Ref.on('value', function (snapshot){
       var name = snapshot.val().name;
       if (name != '') {
-        console.log("New Name for Player 1 : " + name);
+        // console.log("New Name for Player 1 : " + name);
         $('#player1name').html(name);
       } else {
         $('#player1name').html('Player 1');
@@ -131,7 +133,7 @@
     player2Ref.on('value', function (snapshot){
       var name = snapshot.val().name;
       if (name != '') {
-        console.log("New Name for Player 2 : " + name);
+        // console.log("New Name for Player 2 : " + name);
         $('#player2name').html(name);
       } else {
         $('#player2name').html('Player 2');

@@ -1,3 +1,13 @@
+/* Order of precedence for JS files:
+
+- makeDeck.js : creates the deck and adds it to Firebase. It's 'init' function is called on page load.
+- deal.js : deals cards to players. 'deal' is called on pageload in the 'init' function. There is no practical need to wait. 
+  - Correction!: fix that. Or call the functions from display hand instead of calling deal when it comes time to show the player their cards
+- displayTrigger.js : all the functions required for showing cards on the screen
+- displayCards.js : the actual functions that create the cards
+
+*/
+
 {
   "name": "application-name",
   "version": "0.0.1",
