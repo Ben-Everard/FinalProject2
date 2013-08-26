@@ -51,55 +51,36 @@ function communityCards() {
   });
 }
 
-function cardsHeld(){
+// Transfer cards from the Community "held" to Community "dealt"
+function transferCards(num, callback) {
+  var ccardsDealt = new Array();
   var ccardsHeld = new Array();
   // Pull all values first from the 'held' ref and add to 'held' array
   communityCardRef.child('held').once('value', function (snapshot, error){
     snapshot.forEach(function (eachSnapshot){
       ccardsHeld.push(eachSnapshot.val());
     });
-    console.log(ccardsHeld);
-    return ccardsHeld;
-  });
-}
+    // Then pull all values from the 'dealt' ref and add to 'dealt' array
+    // There is probably a better way to do this but Firebase was making things screwy 
+    communityCardRef.child('dealt').once('value', function (snapshot){
+      snapshot.forEach(function (eachSnapshot){
+        ccardsDealt.push(eachSnapshot.val());
+      });
 
-function cardsDealt(){
-  var ccardsDealt = new Array();
-  // Then pull all values from the 'dealt' ref and add to 'dealt' array
-  // There is probably a better way to do this but Firebase was making things screwy 
-  communityCardRef.child('dealt').once('value', function (snapshot){
-    snapshot.forEach(function (eachSnapshot){
-      ccardsDealt.push(eachSnapshot.val());
+      // removes the card from Firebase
+      communityCardRef.child('held').child(num).remove();
+      // removes the card from the Community Cards Array Held
+      var card = ccardsHeld.shift();
+      // adds card to the Community Cards Array dealt
+      ccardsDealt.push(card);
+      // adds the card to the player's hand
+      communityCardRef.child('dealt').child(num).set({ rank: card['rank'], suit: card['suit'] });
+      console.log(ccardsHeld);
+      console.log(ccardsDealt);
+      console.log("Done transferring");
     });
-    console.log(ccardsDealt);
-    return ccardsDealt;
   });
-
 }
-
-// Transfer cards from the Community "held" to Community "dealt"
-function transferCards(num) {
-  var ccardsHeld = cardsHeld();
-  console.log(ccardsHeld);
-  var cardsDealt = cardsDealt();
-
-  console.log(ccardsHeld);
-  console.log(cardsDealt);
-
-  // removes the card from Firebase
-  communityCardRef.child('held').child(num).remove();
-  // removes the card from the Community Cards Array Held
-  var card = ccardsHeld.shift();
-  // adds card to the Community Cards Array dealt
-  ccardsDealt.push(card);
-  // adds the card to the player's hand
-  communityCardRef.child('dealt').child(num).set({ rank: card['rank'], suit: card['suit'] });
-  console.log(ccardsHeld);
-  console.log(ccardsDealt);
-  console.log("Done transferring");
-};
-//   });
-// }
 
 
 function dealerCards() {
